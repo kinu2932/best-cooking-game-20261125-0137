@@ -11,6 +11,13 @@ const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 const params = new URLSearchParams(location.search);
 
+// Screenshots stay clean: the page-level hint bar would overlap the
+// ingredient bins in an 800 px tall viewport, so hide it in staged shots.
+if (params.has('shot') || params.has('selftest')) {
+  const hint = document.getElementById('hint');
+  if (hint) hint.style.display = 'none';
+}
+
 const state = newGame();
 const input = createInput(canvas, {});
 

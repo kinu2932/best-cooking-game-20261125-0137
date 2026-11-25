@@ -325,7 +325,7 @@ function drawTicket(ctx, order, x, y, t) {
   const urgent = ratio < 0.35;
   const bg = urgent && Math.sin(t * 8) > 0 ? '#ffe1dc' : '#fffdf6';
   ctx.fillStyle = bg;
-  rr(ctx, x, y, 204, 92, 8);
+  rr(ctx, x, y, 196, 92, 8);
   ctx.fill();
   ctx.strokeStyle = urgent ? '#d9392b' : '#d9c9a8'; ctx.lineWidth = urgent ? 3 : 2; ctx.stroke();
   text(ctx, `#${order.id} ${recipe.name}`, x + 10, y + 16, 13, INK, '800');
@@ -334,12 +334,12 @@ function drawTicket(ctx, order, x, y, t) {
     drawIngredient(ctx, id, ix + 14, y + 46, 24, id === 'patty' ? 'perfect' : undefined);
     ix += 30;
   }
-  text(ctx, `$${recipe.price}`, x + 192, y + 16, 13, '#1d7a2e', '900', 'right');
+  text(ctx, `$${recipe.price}`, x + 184, y + 16, 13, '#1d7a2e', '900', 'right');
   // patience bar
   ctx.fillStyle = '#e5d9c2';
-  rr(ctx, x + 10, y + 74, 184, 9, 4); ctx.fill();
+  rr(ctx, x + 10, y + 74, 176, 9, 4); ctx.fill();
   ctx.fillStyle = ratio > 0.5 ? '#5da244' : ratio > 0.25 ? '#f2c230' : '#d9392b';
-  rr(ctx, x + 10, y + 74, 184 * ratio, 9, 4); ctx.fill();
+  rr(ctx, x + 10, y + 74, 176 * ratio, 9, 4); ctx.fill();
 }
 
 function drawHud(ctx, state, t) {
@@ -349,7 +349,7 @@ function drawHud(ctx, state, t) {
   if (!state.orders.length) {
     text(ctx, 'menunggu pesanan pertama…', 300, 60, 15, '#8a6a45', '600');
   }
-  state.orders.forEach((o, i) => drawTicket(ctx, o, 300 + i * 214, 10, t));
+  state.orders.forEach((o, i) => drawTicket(ctx, o, 280 + i * 201, 10, t));
 
   // coins + combo, top-left under the title
   text(ctx, `💰 $${state.coins}`, 24, 92, 20, '#1d7a2e', '900');

@@ -158,14 +158,14 @@ export function update(state, dt, sfx) {
     if (slot && slot.t >= TUNING.grillBurnSeconds && !slot.warned) {
       slot.warned = true;
       state.stats.burnt++;
-      addFloater(state, 170, 150, 'PATTY GOSONG!', '#d9392b');
+      addFloater(state, 170, 290, 'PATTY GOSONG!', '#d9392b');
       if (sfx) sfx.burnt();
     }
   }
   if (state.fryer && state.fryer.t >= TUNING.fryerBurnSeconds && !state.fryer.warned) {
     state.fryer.warned = true;
     state.stats.burnt++;
-    addFloater(state, 400, 150, 'KENTANG GOSONG!', '#d9392b');
+    addFloater(state, 400, 290, 'KENTANG GOSONG!', '#d9392b');
     if (sfx) sfx.burnt();
   }
 
